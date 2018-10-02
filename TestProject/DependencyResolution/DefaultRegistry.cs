@@ -18,7 +18,9 @@
 namespace TestProject.DependencyResolution {
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
-	
+    using TestProject.DataAccessLayer;
+    using TestProject.Interfaces;
+
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
 
@@ -29,7 +31,7 @@ namespace TestProject.DependencyResolution {
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
-            //For<IExample>().Use<Example>();
+            For<IUnitOfWork>().Use<UnitOfWork>();
         }
 
         #endregion

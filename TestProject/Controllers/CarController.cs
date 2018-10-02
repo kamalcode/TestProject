@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TestProject.DataAccessLayer;
+using TestProject.Interfaces;
 using TestProject.Models;
 using TestProject.Services;
 
@@ -13,11 +14,11 @@ namespace TestProject.Controllers
     [Authorize]
     public class CarController : Controller
     {
-        private readonly UnitOfWork _unitOfWork = null;
+        private readonly IUnitOfWork _unitOfWork = null;
 
-        public CarController()
+        public CarController(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork();
+            _unitOfWork = unitOfWork;
         }
 
         public ActionResult Index(string currentFilter, string searchTerm)

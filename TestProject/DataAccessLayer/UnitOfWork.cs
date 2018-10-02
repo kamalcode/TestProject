@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TestProject.Interfaces;
 using TestProject.Models;
 
 namespace TestProject.DataAccessLayer
 {
-    public class UnitOfWork
+    public class UnitOfWork: IUnitOfWork
     {
         private TestProjectContext dbContext = new TestProjectContext();
         private GenericRepository<Car> carRepository;

@@ -6,17 +6,26 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestProject;
 using TestProject.Controllers;
+using TestProject.DataAccessLayer;
+using TestProject.Interfaces;
 
 namespace TestProject.Tests.Controllers
 {
     [TestClass]
     public class CarControllerTest
     {
+        private IUnitOfWork _unitOfWork = null;
+        [TestInitialize]
+        public void Initialise()
+        {
+            _unitOfWork = new UnitOfWork();
+        }
+
         [TestMethod]
         public void Index()
         {
             // Arrange
-            CarController controller = new CarController();
+            CarController controller = new CarController(_unitOfWork);
 
             // Act
             ViewResult result = controller.Index("","") as ViewResult;
@@ -29,7 +38,7 @@ namespace TestProject.Tests.Controllers
         public void Create()
         {
             // Arrange
-            CarController controller = new CarController();
+            CarController controller = new CarController(_unitOfWork);
 
             // Act
             ViewResult result = controller.Create() as ViewResult;
@@ -42,7 +51,7 @@ namespace TestProject.Tests.Controllers
         public void Edit()
         {
             // Arrange
-            CarController controller = new CarController();
+            CarController controller = new CarController(_unitOfWork);
 
             // Act
             ViewResult result = controller.Edit(0) as ViewResult;
