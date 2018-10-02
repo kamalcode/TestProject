@@ -13,21 +13,28 @@ namespace TestProject.Controllers
     [Authorize]
     public class CarController : Controller
     {
-        private UnitOfWork unitOfWork = new UnitOfWork();
-      
+        private readonly UnitOfWork _unitOfWork = null;
+
+        public CarController()
+        {
+            _unitOfWork = new UnitOfWork();
+        }
+
         public ActionResult Index(string currentFilter, string searchTerm)
         {
             ViewBag.CurrentFilter = searchTerm;
             IList<Car> listCars = null;
+            var un = User.Identity.Name;
             try
             {
-                if(!string.IsNullOrWhiteSpace(searchTerm))
+
+                if (!string.IsNullOrWhiteSpace(searchTerm))
                 {
-                    listCars = unitOfWork.CarRepository.Get(d => d.Brand == searchTerm, d => d.OrderByDescending(x => x.ID)).ToList();
+                    listCars = _unitOfWork.CarRepository.Get(d => ((d.Model.Contains(searchTerm) || d.Brand.Contains(searchTerm)) && d.CreatedBy == un), d => d.OrderByDescending(x => x.ID)).ToList();
                 }
                 else
                 {
-                    listCars = unitOfWork.CarRepository.Get(null,d => d.OrderByDescending(x => x.ID),"").ToList();
+                    listCars = _unitOfWork.CarRepository.Get(d=>d.CreatedBy==un,d => d.OrderByDescending(x => x.ID),"").ToList();
                 }
             }
             catch(DataException ex)
@@ -53,8 +60,8 @@ namespace TestProject.Controllers
                 {
                     var un = User.Identity.Name;
                     car.CreatedBy = un;
-                    unitOfWork.CarRepository.Insert(car);
-                    unitOfWork.Save();
+                    _unitOfWork.CarRepository.Insert(car);
+                    _unitOfWork.Save();
                     LoggerService.Info(string.Format("Created new car record by user:{0}", un));
                 }
             }
@@ -67,7 +74,7 @@ namespace TestProject.Controllers
 
         public ActionResult Edit(int Id)
         {
-            var car = unitOfWork.CarRepository.GetByID(Id);
+            var car = _unitOfWork.CarRepository.GetByID(Id);
             return PartialView("_EditCarPartial", car);
         }
 
@@ -81,8 +88,8 @@ namespace TestProject.Controllers
                 {
                     var un = User.Identity.Name;
                     car.CreatedBy = un;
-                    unitOfWork.CarRepository.Update(car);
-                    unitOfWork.Save();
+                    _unitOfWork.CarRepository.Update(car);
+                    _unitOfWork.Save();
                     LoggerService.Info(string.Format("Edit by user:{0}", un));
                 }
             }

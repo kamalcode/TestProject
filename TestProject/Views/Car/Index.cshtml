@@ -64,8 +64,7 @@
 <input type="hidden" id="hiddenId" />
 <script>
     var EditCar = function (Id) {
-        alert(Id)
-        var url = "/car/Edit?id=" + Id;
+         var url = "/car/Edit?id=" + Id;
         $("#ModalBodyDiv").load(url, function () {
             $("#ModalDialog").modal("show");
         })

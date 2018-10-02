@@ -19,7 +19,7 @@ namespace TestProject.Tests.Controllers
             CarController controller = new CarController();
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            ViewResult result = controller.Index("","") as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

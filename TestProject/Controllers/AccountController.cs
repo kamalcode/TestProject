@@ -392,7 +392,7 @@ namespace TestProject.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Car");
         }
 
         //
@@ -449,7 +449,7 @@ namespace TestProject.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Car");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

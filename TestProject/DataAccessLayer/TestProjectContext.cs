@@ -9,6 +9,10 @@ namespace TestProject.DataAccessLayer
 {
     public class TestProjectContext: DbContext
     {
+        public TestProjectContext()
+           : base("DefaultConnection")
+        {
+        }
         public DbSet<Car> Cars { get; set; }
 
     }
