@@ -1,0 +1,75 @@
+2018-10-01 15:20:39,307 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:42:04,116 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:44:31,480 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:45:17,240 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:47:10,775 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:47:39,710 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:47:42,764 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:52:25,098 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:54:41,496 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:54:49,496 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:55:00,132 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 15:55:41,595 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:03:24,237 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:03:33,084 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:03:36,298 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:05:42,602 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:05:50,717 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:05:50,752 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:05:58,059 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:05:58,100 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:07:13,647 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:08:22,430 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 16:08:38,943 DEBUG TestProject.Services.LoggerService - hellow log4net
+2018-10-01 20:28:41,051 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:14:04,703 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:17:01,601 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:20:03,789 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:22:07,700 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:22:33,816 ERROR TestProject.Services.LoggerService -    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at TestProject.DataAccessLayer.UnitOfWork.Save() in C:\Test\TestProject\TestProject\DataAccessLayer\UnitOfWork.cs:line 28
+   at TestProject.Controllers.CarController.Edit(Car car) in C:\Test\TestProject\TestProject\Controllers\CarController.cs:line 76
+2018-10-01 21:27:30,054 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:30:08,078 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:33:56,254 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:35:55,719 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:39:54,015 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:45:31,546 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:47:55,386 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:50:51,086 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 21:57:19,437 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 22:04:28,381 ERROR TestProject.Services.LoggerService -    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at TestProject.DataAccessLayer.UnitOfWork.Save() in C:\Test\TestProject\TestProject\DataAccessLayer\UnitOfWork.cs:line 28
+   at TestProject.Controllers.CarController.Edit(Car car) in C:\Test\TestProject\TestProject\Controllers\CarController.cs:line 76
+2018-10-01 22:08:15,755 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 22:08:15,755 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 22:08:15,755 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 22:09:17,264 ERROR TestProject.Services.LoggerService -    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at TestProject.DataAccessLayer.UnitOfWork.Save() in C:\Test\TestProject\TestProject\DataAccessLayer\UnitOfWork.cs:line 28
+   at TestProject.Controllers.CarController.Edit(Car car) in C:\Test\TestProject\TestProject\Controllers\CarController.cs:line 76
+2018-10-01 22:17:56,963 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 22:18:23,714 INFO TestProject.Services.LoggerService - Edit by user:Kamal@test.com
+2018-10-01 22:29:47,089 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 23:04:47,687 INFO TestProject.Services.LoggerService - Created new car record by user:Kamal@test.com
+2018-10-01 23:29:29,613 INFO TestProject.Services.LoggerService - Created new car record by user:Bhavi@ashtankar.com
+2018-10-01 23:29:45,314 INFO TestProject.Services.LoggerService - Edit by user:Bhavi@ashtankar.com
+2018-10-01 23:31:15,370 INFO TestProject.Services.LoggerService - Created new car record by user:Bhavi@ashtankar.com
+2018-10-01 23:41:43,021 ERROR TestProject.Services.LoggerService -    at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at TestProject.DataAccessLayer.GenericRepository`1.Get(Expression`1 filter, Func`2 orderBy, String includeProperties) in C:\Test\TestProject\TestProject\DataAccessLayer\GenericRepository.cs:line 29
+   at TestProject.Controllers.CarController.Index(String currentFilter, String searchTerm) in C:\Test\TestProject\TestProject\Controllers\CarController.cs:line 37

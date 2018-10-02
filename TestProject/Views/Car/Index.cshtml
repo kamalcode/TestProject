@@ -1,0 +1,78 @@
+﻿@model IEnumerable<TestProject.Models.Car>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Car Listing";
+}
+<div>
+    <h2>Cars</h2>
+    <p>
+        <a href="#" class="btn btn-primary" onclick="AddNewCar()">Create New</a>
+    </p>
+    @using (Html.BeginForm("Index", "Car", FormMethod.Get))
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchTerm", ViewBag.CurrentFilter as string, new { placeholder = "Brand or Model" })
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Year</th>
+            <th>New</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="#" class="btn btn-primary" onclick="EditCar('@item.ID')">Edit</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.New)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div class="modal fade" id="ModalDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                @*<h3 class="modal-title">Edit</h3>*@
+            </div>
+            <div class="modal-body" id="ModalBodyDiv">
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hiddenId" />
+<script>
+    var EditCar = function (Id) {
+         var url = "/car/Edit?id=" + Id;
+        $("#ModalBodyDiv").load(url, function () {
+            $("#ModalDialog").modal("show");
+        })
+    }
+    var AddNewCar = function () {
+        var url = "/car/Create";
+        $("#ModalBodyDiv").load(url, function () {
+            $("#ModalDialog").modal("show");
+        })
+    }
+</script>

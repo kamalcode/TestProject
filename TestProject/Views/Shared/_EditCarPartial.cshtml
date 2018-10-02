@@ -1,0 +1,80 @@
+﻿@model TestProject.Models.Car
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<form id="myEditForm">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Course</legend>
+        @Html.HiddenFor(model => model.ID)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ID)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.ID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Brand)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Brand)
+            @Html.ValidationMessageFor(model => model.Brand)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Model)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Model)
+            @Html.ValidationMessageFor(model => model.Model)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Year)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Year)
+            @Html.ValidationMessageFor(model => model.Year)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.LabelFor(model => model.New)
+            @Html.CheckBoxFor(m => m.New)
+        </div>
+        <p>
+            <input type="button" id="btnSubmit" value="Save" />
+        </p>
+    </fieldset>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+            var myformdata = $("#myEditForm").serialize();
+            $.ajax({
+            type: "POST",
+                url: "/car/Edit",
+                data: myformdata,
+                success: function (res) {
+                    $("#ModalDialog").modal("hide");
+                     window.location.href = '@Url.Action("Index", "car")';
+                }
+            })
+        })
+    })
+</script>
+<div>
+    @Html.ActionLink("Back to List Page", "Index")
+</div>
+
+
