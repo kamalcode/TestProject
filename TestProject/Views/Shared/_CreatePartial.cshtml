@@ -14,7 +14,7 @@
     </div>
     <div class="editor-field">
         @Html.EditorFor(model => model.Brand)
-        @Html.ValidationMessageFor(model => model.Brand)
+        @Html.ValidationMessageFor(model => model.Brand, "Please Enter Brand", new { @class = "text-danger" })
     </div>
 
     <div class="editor-label">
@@ -22,11 +22,11 @@
     </div>
     <div class="editor-field">
         @Html.EditorFor(model => model.Model)
-        @Html.ValidationMessageFor(model => model.Model)
+        @Html.ValidationMessageFor(model => model.Model, "Please Enter Model",new { @class = "text-danger" })
     </div>
 
     <div class="editor-label">
-        @Html.LabelFor(model => model.Year)
+        @Html.LabelFor(model => model.Year, "Please Enter YYYY", new { @class = "text-danger" }))
     </div>
     <div class="editor-field">
         @Html.EditorFor(model => model.Year)
