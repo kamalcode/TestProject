@@ -18,10 +18,23 @@
 
 namespace TestProject.DependencyResolution {
     using StructureMap;
-	
-    public static class IoC {
-        public static IContainer Initialize() {
-            return new Container(c => c.AddRegistry<DefaultRegistry>());
+    using System.Web;
+    using TestProject.Models;
+
+    public static class IoC
+    {
+        public static IContainer Initialize()
+        {
+            return new Container(c =>
+            {
+                c.AddRegistry<DefaultRegistry>();
+
+                // Hacks 
+                c.For<Microsoft.AspNet.Identity.IUserStore<ApplicationUser>>().Use<Microsoft.AspNet.Identity.EntityFramework.UserStore<ApplicationUser>>();
+                c.For<System.Data.Entity.DbContext>().Use(() => new ApplicationDbContext());
+                c.For<Microsoft.Owin.Security.IAuthenticationManager>().Use(() => HttpContext.Current.GetOwinContext().Authentication);
+
+            });
         }
     }
 }
