@@ -15,12 +15,20 @@ namespace TestProject.Controllers
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
       
-        public ActionResult Index()
+        public ActionResult Index(string currentFilter, string searchTerm)
         {
+            ViewBag.CurrentFilter = searchTerm;
             IList<Car> listCars = null;
             try
             {
-                listCars = unitOfWork.CarRepository.Get().ToList();
+                if(!string.IsNullOrWhiteSpace(searchTerm))
+                {
+                    listCars = unitOfWork.CarRepository.Get(d => d.Brand == searchTerm, d => d.OrderByDescending(x => x.ID)).ToList();
+                }
+                else
+                {
+                    listCars = unitOfWork.CarRepository.Get(null,d => d.OrderByDescending(x => x.ID),"").ToList();
+                }
             }
             catch(DataException ex)
             {

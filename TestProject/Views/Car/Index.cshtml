@@ -6,42 +6,48 @@
 <div>
     <h2>Cars</h2>
     <p>
-        @*@Html.ActionLink("Create New", "Create")*@
         <a href="#" class="btn btn-primary" onclick="AddNewCar()">Create New</a>
     </p>
-<table class="table table-striped">
-<tr>
-    <th>Id</th>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Price</th>
-    <th>Year</th>
-    <th>New</th>
-</tr>
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            <a href="#" class="btn btn-primary" onclick="EditCar('@item.ID')">Edit</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.New)
-        </td>
-    </tr>
-}
-</table>
+    @using (Html.BeginForm("Index", "Car", FormMethod.Get))
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchTerm", ViewBag.CurrentFilter as string, new { placeholder = "Brand or Model" })
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Year</th>
+            <th>New</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="#" class="btn btn-primary" onclick="EditCar('@item.ID')">Edit</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.New)
+                </td>
+            </tr>
+        }
+    </table>
 </div>
 <div class="modal fade" id="ModalDialog">
     <div class="modal-dialog">
