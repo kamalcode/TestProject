@@ -10,13 +10,13 @@ using TestProject.Controllers;
 namespace TestProject.Tests.Controllers
 {
     [TestClass]
-    public class HomeControllerTest
+    public class CarControllerTest
     {
         [TestMethod]
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            CarController controller = new CarController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -26,26 +26,26 @@ namespace TestProject.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void Create()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            CarController controller = new CarController();
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.Create() as ViewResult;
 
             // Assert
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
         [TestMethod]
-        public void Contact()
+        public void Edit()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            CarController controller = new CarController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Edit(0) as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

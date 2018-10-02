@@ -1,0 +1,72 @@
+﻿@model TestProject.Models.Car
+@{
+    ViewBag.Title = "Create";
+}
+<h2>Create</h2>
+ @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "newForm" }))
+ {
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+<fieldset>
+    <legend>Car</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Brand)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Brand)
+        @Html.ValidationMessageFor(model => model.Brand)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Model)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Model)
+        @Html.ValidationMessageFor(model => model.Model)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Year)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Year)
+        @Html.ValidationMessageFor(model => model.Year)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Price)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+    </div>
+    <div class="editor-field">
+        @Html.LabelFor(model => model.New)
+        @Html.CheckBoxFor(m => m.New)
+    </div>
+    <p>
+        <input type="button" id="btnSubmit" value="Create new" />
+    </p>
+</fieldset>
+ }
+<script>
+$(document).ready(function () {
+    $("#btnSubmit").click(function () {
+        var myformdata = $("#newForm").serialize();
+        $.ajax({
+            type: "POST",
+            url: "/car/Create",
+            data: myformdata,
+            success: function (res) {
+                $("#ModalDialog").modal("hide");
+               window.location.href = '@Url.Action("Index", "car")';
+            }
+        })
+    })
+})
+</script>
+<div>
+    @Html.ActionLink("Back to List Page", "Index")
+</div>
+
+
